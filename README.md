@@ -2,6 +2,12 @@
 
 Mock [JSON Activity Streams](http://tools.ietf.org/html/draft-snell-activitystreams-09) Objects you can use to develop other components.
 
+## Using
+
+The source is intended to be run by node (not, e.g. [cajon](https://github.com/requirejs/cajon)).
+
+A UMD build is distributed in [dist/](./dist), and can be generated with `make dist`.
+
 ## Mocks
 
 From [jasnell/activitystreams.jsonld](https://github.com/jasnell/activitystreams.jsonld) README.
