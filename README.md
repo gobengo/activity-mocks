@@ -9,6 +9,10 @@ From [jasnell/activitystreams.jsonld](https://github.com/jasnell/activitystreams
 * [strings](./mocks/strings.json) - Has only string values for Activity properties
 * [jsonld](./mocks/jsonld.json) - The 'extended example' whose .object has its own jsonld context
 
+Vendors
+
+* [Livefyre](./mocks/livefyre.json)
+
 ## `make` commands
 
 * `make build` - will `npm install` and `bower install`

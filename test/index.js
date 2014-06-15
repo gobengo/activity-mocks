@@ -4,7 +4,7 @@ var activityMocks = require('activity-mocks');
 var assert = require('chai').assert;
 var sinon = require('sinon');
 
-var mockList = ['jsonld', 'strings'];
+var mockList = ['jsonld', 'strings', 'livefyre'];
 
 describe('activity-mocks', function () {
     it('has good mocks', function () {

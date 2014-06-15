@@ -1,0 +1,49 @@
+{
+    "actor": {
+        "id": "urn:livefyre:livefyre.com:user=%i",
+        "objectType": "user",
+        "displayName": "Bob Doe",
+        "url": "http://www.livefyre.com/user/123",
+        "image": "http://www.livefyre.com/user/123/sample.gif",
+        "email": "bob@example.com"
+    },
+    "published" : {
+        "published_time" : "2014-06-14T20:56:16.046092Z"
+    },
+    "verb": {
+        "id": "urn:livefyre:livefyre.com:verb=post",
+        "displayName": "post"
+    },
+    "object": {
+        "id": "urn:livefyre:livefyre.com:collection=321:message=123",
+        "objectType": "message",
+        "content": "This is a comment post.",
+        "ancestor": {
+            "id": "urn:livefyre:livefyre.com:collection=321:message=111",
+            "objectType": "message"
+        },
+        "inReplyTo": {
+            "id": "urn:livefyre:livefyre.com:collection=321:message=112",
+            "objectType": "message"
+        }
+    },
+    "target": {
+        "id": "urn:livefyre:livefyre.com:collection=321",
+        "objectType": "collection",
+        "url": "http://www.example.com",
+        "title": "My Collection",
+        "site": {
+            "id": "urn:livefyre:livefyre.com:site=222",
+            "url": "http://www.example.com"
+        },
+        "network": {
+            "id": "urn:livefyre:livefyre.com:network=333",
+            "displayName": "My Network"
+        }
+    },
+    "context": {
+        "personalStream": {
+            "topics": "__TOPICS_PLACEHOLDER__"
+        }
+    }
+}

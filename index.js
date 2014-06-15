@@ -2,6 +2,7 @@
 
 exports.strings = require('./mocks/strings.json');
 exports.jsonld = require('./mocks/jsonld.json');
+exports.livefyre = require('./mocks/livefyre.json');
 
 var createBlacklist = ['create'];
 
