@@ -3,6 +3,7 @@
 
 exports.strings = _dereq_('./mocks/strings.json');
 exports.jsonld = _dereq_('./mocks/jsonld.json');
+exports.livefyre = _dereq_('./mocks/livefyre.json');
 
 var createBlacklist = ['create'];
 
@@ -19,7 +20,7 @@ exports.create = function (name) {
     return Object.create(prototype);
 }
 
-},{"./mocks/jsonld.json":2,"./mocks/strings.json":3}],2:[function(_dereq_,module,exports){
+},{"./mocks/jsonld.json":2,"./mocks/livefyre.json":3,"./mocks/strings.json":4}],2:[function(_dereq_,module,exports){
 module.exports={
   "@context": "https://w3id.org/activity-streams/v2",
   "actor": {
@@ -71,6 +72,57 @@ module.exports={
 }
 
 },{}],3:[function(_dereq_,module,exports){
+module.exports={
+    "actor": {
+        "id": "urn:livefyre:livefyre.com:user=%i",
+        "objectType": "user",
+        "displayName": "Bob Doe",
+        "url": "http://www.livefyre.com/user/123",
+        "image": "http://www.livefyre.com/user/123/sample.gif",
+        "email": "bob@example.com"
+    },
+    "published" : {
+        "published_time" : "2014-06-14T20:56:16.046092Z"
+    },
+    "verb": {
+        "id": "urn:livefyre:livefyre.com:verb=post",
+        "displayName": "post"
+    },
+    "object": {
+        "id": "urn:livefyre:livefyre.com:collection=321:message=123",
+        "objectType": "message",
+        "content": "This is a comment post.",
+        "ancestor": {
+            "id": "urn:livefyre:livefyre.com:collection=321:message=111",
+            "objectType": "message"
+        },
+        "inReplyTo": {
+            "id": "urn:livefyre:livefyre.com:collection=321:message=112",
+            "objectType": "message"
+        }
+    },
+    "target": {
+        "id": "urn:livefyre:livefyre.com:collection=321",
+        "objectType": "collection",
+        "url": "http://www.example.com",
+        "title": "My Collection",
+        "site": {
+            "id": "urn:livefyre:livefyre.com:site=222",
+            "url": "http://www.example.com"
+        },
+        "network": {
+            "id": "urn:livefyre:livefyre.com:network=333",
+            "displayName": "My Network"
+        }
+    },
+    "context": {
+        "personalStream": {
+            "topics": "__TOPICS_PLACEHOLDER__"
+        }
+    }
+}
+
+},{}],4:[function(_dereq_,module,exports){
 module.exports={
   "@context": "https://w3id.org/activity-streams/v2",
   "verb": "post",
