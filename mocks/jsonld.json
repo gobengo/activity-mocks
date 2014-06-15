@@ -1,0 +1,49 @@
+{
+  "@context": "https://w3id.org/activity-streams/v2",
+  "actor": {
+    "objectType": "person",
+    "displayName": "Joe"
+  },
+  "verb": "post",
+  "object": {
+    "id": "http://example.org/cars/for-sale#tesla",
+    "objectType": "http://purl.org/goodrelations/v1#",
+    "displayName": "Used Tesla Roadster",
+    "content": "Need to sell fast and furiously",
+    "gr:hasBusinessFunction": "gr:Sell",
+    "gr:acceptedPaymentMethods": "gr:Cash",
+    "gr:hasPriceSpecification": {
+      "gr:hasCurrencyValue": "85000",
+      "gr:hasCurrency": "USD"
+    },
+    "gr:includes": {
+      "@type": [
+        "gr:Individual",
+        "pto:Vehicle"
+      ],
+      "gr:name": "Tesla Roadster",
+      "foaf:page": "http://www.teslamotors.com/roadster"
+    },
+    "@context": {
+      "gr": "http://purl.org/goodrelations/v1#",
+      "pto": "http://www.productontology.org/id/",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "foaf:page": {
+        "@type": "@id"
+      },
+      "gr:acceptedPaymentMethods": {
+        "@type": "@id"
+      },
+      "gr:hasBusinessFunction": {
+        "@type": "@id"
+      },
+      "gr:hasCurrencyValue": {
+        "@type": "xsd:float"
+      },      
+      "displayName": "gr:name",
+      "content": "gr:description",
+      "objectType": "@type"
+    }
+  }
+}

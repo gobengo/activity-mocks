@@ -1,0 +1,7 @@
+{
+  "@context": "https://w3id.org/activity-streams/v2",
+  "verb": "post",
+  "actor": "acct:joe@example.org",
+  "object": "http://example.org/posts/1",
+  "updated": "2014-12-12T12:12:12.123Z"
+}
