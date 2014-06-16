@@ -2,17 +2,25 @@
 
 exports.strings = require('./mocks/strings.json');
 exports.jsonld = require('./mocks/jsonld.json');
-exports.livefyre = require('./mocks/livefyre.json');
+exports.livefyre = {
+    userPostMessage: require('./mocks/livefyre/user-post-message'),
+    sitePostCollection: require('./mocks/livefyre/site-post-collection')
+};
 
+// Blacklist certain names to .create(name)
 var createBlacklist = ['create'];
 
 /**
  * Create a fresh instance of a named mock
+ * @example .create('livefyre.userPostMessage')
  */
 exports.create = function (name) {
     var blacklisted = (createBlacklist.indexOf(name) !== -1);
-    var prototype = exports[name];
-    var missing = ! (exports[name]);
+    var dotParts = name.split('.');
+    var prototype = exports;
+    dotParts.forEach(function (key) {
+        prototype = prototype[key];
+    });
     if (blacklisted || ! prototype) {
         throw new Error('Can\'t create activity-mock "'+name+'"')
     }

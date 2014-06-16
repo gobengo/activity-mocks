@@ -1,0 +1,19 @@
+{
+    "actor": {
+        "objectType": "site",
+        "id": "urn:livefyre:livefyre.com:site=222",
+        "url": "http://www.example.com"
+    },
+    "verb": "verb",
+    "object": {
+        "id": "urn:livefyre:livefyre.com:collection=321",
+        "objectType": "collection",
+        "url": "http://www.example.com",
+        "title": "My Collection"
+    },
+    "context": {
+        "personalStream": {
+            "topics": "__TOPICS_PLACEHOLDER__"
+        }
+    }
+}
