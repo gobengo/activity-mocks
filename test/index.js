@@ -4,12 +4,17 @@ var activityMocks = require('activity-mocks');
 var assert = require('chai').assert;
 var sinon = require('sinon');
 
-var mockList = ['jsonld', 'strings', 'livefyre'];
+var mockList = [
+    'jsonld',
+    'strings',
+    'livefyre.sitePostCollection',
+    'livefyre.userPostMessage'
+];
 
 describe('activity-mocks', function () {
     it('has good mocks', function () {
         mockList.forEach(function (name) {
-            assert.typeOf(activityMocks[name], 'object');
+            assert.typeOf(activityMocks.create(name), 'object');
         });
     });
     describe('#create', function () {
