@@ -19,6 +19,45 @@ Vendors
 
 * [Livefyre](./mocks/livefyre.json)
 
+## API
+
+The main export is a tree of the different sets of mocks
+
+```javascript
+var activityMocks = require('activity-mocks');
+activityMocks.strings;
+activityMocks.jsonld;
+activityMocks.livefyre.userPostMessage;
+activityMocks.livefyre.sitePostCollection;
+```
+
+You can create a new instance of a mock by name
+
+```javascript
+var activityMocks = require('activity-mocks');
+activityMocks.create('strings');
+activityMocks.create('jsonld');
+activityMocks.create('livefyre.userPostMessage');
+activityMocks.create('livefyre.sitePostCollection');
+```
+
+You can get an array of all mocks
+
+```javascript
+require('activity-mocks').toArray();
+```
+
+You can get a list of all names
+
+```javascript
+var activityMocks = require('activity-mocks');
+activityMocks.names
+  .filter(function (name) {
+    return name.indexOf('livefyre.') === 0;
+  })
+  .map(activityMocks.create);
+```
+
 ## `make` commands
 
 * `make build` - will `npm install` and `bower install`

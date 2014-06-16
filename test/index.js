@@ -4,15 +4,30 @@ var activityMocks = require('activity-mocks');
 var assert = require('chai').assert;
 var sinon = require('sinon');
 
-var mockList = ['jsonld', 'strings', 'livefyre'];
+var mockList = [
+    'jsonld',
+    'strings',
+    'livefyre.sitePostCollection',
+    'livefyre.userPostMessage'
+];
 
 describe('activity-mocks', function () {
     it('has good mocks', function () {
         mockList.forEach(function (name) {
-            assert.typeOf(activityMocks[name], 'object');
+            assert.typeOf(activityMocks.create(name), 'object');
         });
     });
-    describe('#create', function () {
+    it('.names is an Array of all the mock names', function () {
+        assert.equal(activityMocks.names.length, 4)
+    });
+    describe('.toArray()', function () {
+        it('converts mock tree to array', function () {
+            var mocks = activityMocks.toArray();
+            assert.instanceOf(mocks, Array);
+            assert.equal(mocks.length, 4);
+        });
+    });
+    describe('.create', function () {
         it('creates separate instances of the same mock', function () {
             var a1 = activityMocks.create('strings');
             var a2 = activityMocks.create('strings');
