@@ -18,13 +18,13 @@ describe('activity-mocks', function () {
         });
     });
     it('.names is an Array of all the mock names', function () {
-        assert.equal(activityMocks.names.length, 4)
+        assert.equal(activityMocks.names.length, 7)
     });
     describe('.toArray()', function () {
         it('converts mock tree to array', function () {
             var mocks = activityMocks.toArray();
             assert.instanceOf(mocks, Array);
-            assert.equal(mocks.length, 4);
+            assert.equal(mocks.length, 7);
         });
     });
     describe('.create', function () {

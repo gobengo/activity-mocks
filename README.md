@@ -10,14 +10,23 @@ A UMD build is distributed in [dist/](./dist), and can be generated with `make d
 
 ## Mocks
 
-From [jasnell/activitystreams.jsonld](https://github.com/jasnell/activitystreams.jsonld) README.
+### From [jasnell/activitystreams.jsonld](https://github.com/jasnell/activitystreams.jsonld) README.
 
 * [strings](./mocks/strings.json) - Has only string values for Activity properties
 * [jsonld](./mocks/jsonld.json) - The 'extended example' whose .object has its own jsonld context
 
-Vendors
+### From [the Spec](http://tools.ietf.org/html/draft-snell-activitystreams-09)
 
-* [Livefyre](./mocks/livefyre.json)
+* [spec.minimal](./mocks/spec/minimal.json) - [Example 1: Minimal Activity](http://tools.ietf.org/html/draft-snell-activitystreams-09#section-2.1)
+* [spec.basicWithDetail](./mocks/spec/basic-with-detail.json) - [Example 2: Basic activity with some additional detail](http://tools.ietf.org/html/draft-snell-activitystreams-09#section-2.2)
+* [spec.extended](./mocks/spec/extended.json) - [Example 3: An extended activity](http://tools.ietf.org/html/draft-snell-activitystreams-09#section-2.3)
+
+### Vendors
+
+#### Livefyre
+
+* [livefyre.sitePostCollection](./mocks/livefyre/site-post-collection.json)
+* [livefyre.userPostMessage](./mocks/livefyre/user-post-message.json)
 
 ## API
 

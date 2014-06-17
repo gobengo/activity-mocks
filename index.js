@@ -2,6 +2,11 @@
 
 exports.strings = require('./mocks/strings.json');
 exports.jsonld = require('./mocks/jsonld.json');
+exports.spec = {
+    basicWithDetail: require('./mocks/spec/basic-with-detail.json'),
+    extended: require('./mocks/spec/extended.json'),
+    minimal: require('./mocks/spec/minimal.json'),
+};
 exports.livefyre = {
     userPostMessage: require('./mocks/livefyre/user-post-message'),
     sitePostCollection: require('./mocks/livefyre/site-post-collection')
