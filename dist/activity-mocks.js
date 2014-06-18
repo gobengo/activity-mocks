@@ -3,24 +3,82 @@
 
 exports.strings = _dereq_('./mocks/strings.json');
 exports.jsonld = _dereq_('./mocks/jsonld.json');
-exports.livefyre = _dereq_('./mocks/livefyre.json');
+exports.spec = {
+    basicWithDetail: _dereq_('./mocks/spec/basic-with-detail.json'),
+    extended: _dereq_('./mocks/spec/extended.json'),
+    minimal: _dereq_('./mocks/spec/minimal.json'),
+};
+exports.livefyre = {
+    userPostMessage: _dereq_('./mocks/livefyre/user-post-message'),
+    sitePostCollection: _dereq_('./mocks/livefyre/site-post-collection')
+};
 
-var createBlacklist = ['create'];
+// Blacklist certain names to .create(name)
+var notMocks = ['create', 'toArray'];
 
 /**
  * Create a fresh instance of a named mock
+ * @example .create('livefyre.userPostMessage')
  */
 exports.create = function (name) {
-    var blacklisted = (createBlacklist.indexOf(name) !== -1);
-    var prototype = exports[name];
-    var missing = ! (exports[name]);
+    var blacklisted = (notMocks.indexOf(name) !== -1);
+    var dotParts = name.split('.');
+    var prototype = exports;
+    dotParts.forEach(function (key) {
+        prototype = prototype[key];
+    });
     if (blacklisted || ! prototype) {
-        throw new Error('Can\'t create activity-mock "'+name+'"')
+        throw new Error('Can\'t create activity-mock "'+name+'"');
     }
-    return Object.create(prototype);
+    return create(prototype);
+};
+
+// do it this way instead of Object.create, because JSON.stringify
+// on an Object.created thing wont include keys from __proto__
+function create(obj) {
+    return JSON.parse(JSON.stringify(obj));
 }
 
-},{"./mocks/jsonld.json":2,"./mocks/livefyre.json":3,"./mocks/strings.json":4}],2:[function(_dereq_,module,exports){
+/**
+ * Get an array of all the mocks
+ */
+exports.toArray = function () {
+    return this.names.map(this.create);
+};
+
+exports.names = getNames(exports);
+
+/**
+ * Get an array of names from an object tree of mocks
+ */
+function getNames(mockTree, prefix) {
+    prefix = prefix ? prefix + '.' : '';
+    var names = Object.keys(mockTree)
+        // filter notMocks
+        .filter(function (key) {
+            return notMocks.indexOf(key) === -1;
+        })
+        // map to the prefixed name
+        // if the value for this key is another object of mocks, recurse
+        .map(function (key) {
+            var value = mockTree[key];
+            // If it's an activity, just return the key
+            if (value.verb) {
+                return prefix + key;
+            }
+            return getNames(value, key);
+        })
+        // reduce to a flattened list of names
+        .reduce(function (cur, next) {
+            if ( ! (next instanceof Array)) {
+                next = [next];
+            }
+            return cur.concat(next);
+        }, []);
+    return names;
+}
+
+},{"./mocks/jsonld.json":2,"./mocks/livefyre/site-post-collection":3,"./mocks/livefyre/user-post-message":4,"./mocks/spec/basic-with-detail.json":5,"./mocks/spec/extended.json":6,"./mocks/spec/minimal.json":7,"./mocks/strings.json":8}],2:[function(_dereq_,module,exports){
 module.exports={
   "@context": "https://w3id.org/activity-streams/v2",
   "actor": {
@@ -74,6 +132,27 @@ module.exports={
 },{}],3:[function(_dereq_,module,exports){
 module.exports={
     "actor": {
+        "objectType": "site",
+        "id": "urn:livefyre:livefyre.com:site=222",
+        "url": "http://www.example.com"
+    },
+    "verb": "verb",
+    "object": {
+        "id": "urn:livefyre:livefyre.com:collection=321",
+        "objectType": "collection",
+        "url": "http://www.example.com",
+        "title": "My Collection"
+    },
+    "context": {
+        "personalStream": {
+            "topics": "__TOPICS_PLACEHOLDER__"
+        }
+    }
+}
+
+},{}],4:[function(_dereq_,module,exports){
+module.exports={
+    "actor": {
         "id": "urn:livefyre:livefyre.com:user=%i",
         "objectType": "user",
         "displayName": "Bob Doe",
@@ -122,7 +201,104 @@ module.exports={
     }
 }
 
-},{}],4:[function(_dereq_,module,exports){
+},{}],5:[function(_dereq_,module,exports){
+module.exports={
+  "verb": "post",
+  "published": "2011-02-10T15:04:55Z",
+  "language": "en",
+  "actor": {
+    "objectType": "person",
+    "id": "urn:example:person:martin",
+    "displayName": "Martin Smith",
+    "url": "http://example.org/martin",
+    "image": {
+      "url": "http://example.org/martin/image.jpg",
+      "mediaType": "image/jpeg",
+      "width": 250,
+      "height": 250
+    }
+  },
+  "object" : {
+    "objectType": "article",
+    "id": "urn:example:blog:abc123/xyz",
+    "url": "http://example.org/blog/2011/02/entry",
+    "displayName": "Why I love Activity Streams"
+  },
+  "target" : {
+    "objectType": "blog",
+    "id": "urn:example:blog:abc123",
+    "displayName": "Martin's Blog",
+    "url": "http://example.org/blog/"
+  }
+}
+
+},{}],6:[function(_dereq_,module,exports){
+module.exports={
+  "verb": "post",
+  "language": "en",
+  "published": "2011-02-10T15:04:55Z",
+  "foo": "some extension property",
+  "generator": "http://example.org/activities-app",
+  "provider": "http://example.org/activity-stream",
+  "displayName": {
+    "en": "Martin posted a new video to his album.",
+    "ga": "Martin phost le fisean nua a albam."
+  },
+  "actor": {
+    "objectType": "person",
+    "id": "urn:example:person:martin",
+    "displayName": "Martin Smith",
+    "url": "http://example.org/martin",
+    "foo2": "some other extension property",
+    "image": {
+      "url": "http://example.org/martin/image",
+      "mediaType": "image/jpeg",
+      "width": 250,
+      "height": 250
+    }
+  },
+  "object" : {
+    "objectType": {
+      "id": "http://example.org/Photo",
+      "displayName": "Photo"
+    },
+    "id": "urn:example:album:abc123/my_fluffy_cat",
+    "url": "http://example.org/album/my_fluffy_cat.jpg",
+    "image": {
+      "url": "http://example.org/album/my_fluffy_cat_thumb.jpg",
+      "mediaType": "image/jpeg",
+      "width": 250,
+      "height": 250
+    }
+  },
+  "target": {
+    "objectType": {
+      "id": "http://example.org/PhotoAlbum",
+      "displayName": "Photo-Album"
+    },
+    "id": "urn:example.org:album:abc123",
+    "url": "http://example.org/album/",
+    "displayName": {
+      "en": "Martin's Photo Album",
+      "ga": "Grianghraif Mairtin"
+    },
+    "image": {
+      "url": "http://example.org/album/thumbnail.jpg",
+      "mediaType": "image/jpeg",
+      "width": 250,
+      "height": 250
+    }
+  }
+}
+
+},{}],7:[function(_dereq_,module,exports){
+module.exports={
+   "verb": "post",
+   "actor": "urn:example:person:martin",
+   "object": "http://example.org/foo.jpg"
+}
+
+},{}],8:[function(_dereq_,module,exports){
 module.exports={
   "@context": "https://w3id.org/activity-streams/v2",
   "verb": "post",
