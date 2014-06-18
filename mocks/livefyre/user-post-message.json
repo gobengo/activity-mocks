@@ -39,11 +39,11 @@
         "network": {
             "id": "urn:livefyre:livefyre.com:network=333",
             "displayName": "My Network"
-        }
+        },
+        "tags": [{
+            "id": "urn:livefyre:cnn.fyre.co:topic=57572",
+            "displayName": "basketball"
+        }]
     },
-    "context": {
-        "personalStream": {
-            "topics": "__TOPICS_PLACEHOLDER__"
-        }
-    }
+    "cc": ["urn:livefyre:livefyre.com:topic=57572"]
 }
