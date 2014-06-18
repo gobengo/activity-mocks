@@ -29,8 +29,14 @@ exports.create = function (name) {
     if (blacklisted || ! prototype) {
         throw new Error('Can\'t create activity-mock "'+name+'"');
     }
-    return Object.create(prototype);
+    return create(prototype);
 };
+
+// do it this way instead of Object.create, because JSON.stringify
+// on an Object.created thing wont include keys from __proto__
+function create(obj) {
+    return JSON.parse(JSON.stringify(obj));
+}
 
 /**
  * Get an array of all the mocks
