@@ -4,16 +4,28 @@
         "id": "urn:livefyre:livefyre.com:site=222",
         "url": "http://www.example.com"
     },
-    "verb": "verb",
+    "verb": "post",
     "object": {
-        "id": "urn:livefyre:livefyre.com:collection=321",
+        "id": "urn:livefyre:livefyre.com:site=286470:collection=824379",
         "objectType": "collection",
-        "url": "http://www.example.com",
-        "title": "My Collection"
+        "title": "Hello world!",
+        "url": "http://www.demofyre.com/?p=1",
+        "articleId": "1",
+        "site": {
+            "displayName": "site.local",
+            "id": "urn:livefyre:livefyre.com:site=286470",
+            "objectType": "site",
+            "url": "http://site.local/"
+        },
+        "tags": [{
+            "id": "urn:livefyre:livefyre.com:site=286470:topic=123",
+            "label": "Topic 123",
+            "objectType": "topic"
+        },{
+            "id": "urn:livefyre:livefyre.com:topic=ABC",
+            "label": "Topic ABC - Network",
+            "objectType": "topic"
+        }]
     },
-    "context": {
-        "personalStream": {
-            "topics": "__TOPICS_PLACEHOLDER__"
-        }
-    }
+    "cc": ["urn:livefyre:livefyre.com:site=286470:topic=123"]
 }

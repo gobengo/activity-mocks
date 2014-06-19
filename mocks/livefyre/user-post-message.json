@@ -7,9 +7,7 @@
         "image": "http://www.livefyre.com/user/123/sample.gif",
         "email": "bob@example.com"
     },
-    "published" : {
-        "published_time" : "2014-06-14T20:56:16.046092Z"
-    },
+    "published" : "2014-06-14T20:56:16.046092Z",
     "verb": {
         "id": "urn:livefyre:livefyre.com:verb=post",
         "displayName": "post"
@@ -28,22 +26,26 @@
         }
     },
     "target": {
-        "id": "urn:livefyre:livefyre.com:collection=321",
+        "id": "urn:livefyre:livefyre.com:site=286470:collection=824379",
         "objectType": "collection",
-        "url": "http://www.example.com",
-        "title": "My Collection",
+        "title": "Hello world!",
+        "url": "http://www.demofyre.com/?p=1",
+        "articleId": "1",
         "site": {
-            "id": "urn:livefyre:livefyre.com:site=222",
-            "url": "http://www.example.com"
+            "displayName": "site.local",
+            "id": "urn:livefyre:livefyre.com:site=286470",
+            "objectType": "site",
+            "url": "http://site.local/"
         },
-        "network": {
-            "id": "urn:livefyre:livefyre.com:network=333",
-            "displayName": "My Network"
-        }
+        "tags": [{
+            "id": "urn:livefyre:livefyre.com:site=286470:topic=123",
+            "label": "Topic 123",
+            "objectType": "topic"
+        },{
+            "id": "urn:livefyre:livefyre.com:topic=ABC",
+            "label": "Topic ABC - Network",
+            "objectType": "topic"
+        }]
     },
-    "context": {
-        "personalStream": {
-            "topics": "__TOPICS_PLACEHOLDER__"
-        }
-    }
+    "cc": ["urn:livefyre:livefyre.com:topic=ABC"]
 }
