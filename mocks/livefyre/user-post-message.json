@@ -7,9 +7,7 @@
         "image": "http://www.livefyre.com/user/123/sample.gif",
         "email": "bob@example.com"
     },
-    "published" : {
-        "published_time" : "2014-06-14T20:56:16.046092Z"
-    },
+    "published" : "2014-06-14T20:56:16.046092Z",
     "verb": {
         "id": "urn:livefyre:livefyre.com:verb=post",
         "displayName": "post"
