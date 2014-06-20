@@ -11,6 +11,7 @@
         "title": "Hello world!",
         "url": "http://www.demofyre.com/?p=1",
         "articleId": "1",
+        "published" : "2014-06-14T20:56:16.046092Z",
         "site": {
             "displayName": "site.local",
             "id": "urn:livefyre:livefyre.com:site=286470",

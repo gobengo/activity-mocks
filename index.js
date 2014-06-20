@@ -8,8 +8,8 @@ exports.spec = {
     minimal: require('./mocks/spec/minimal.json'),
 };
 exports.livefyre = {
-    userPostMessage: require('./mocks/livefyre/user-post-message'),
-    sitePostCollection: require('./mocks/livefyre/site-post-collection')
+    userPostMessage: require('./mocks/livefyre/user-post-message.json'),
+    sitePostCollection: require('./mocks/livefyre/site-post-collection.json')
 };
 
 // Blacklist certain names to .create(name)

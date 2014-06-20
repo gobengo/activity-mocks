@@ -9,8 +9,8 @@ exports.spec = {
     minimal: _dereq_('./mocks/spec/minimal.json'),
 };
 exports.livefyre = {
-    userPostMessage: _dereq_('./mocks/livefyre/user-post-message'),
-    sitePostCollection: _dereq_('./mocks/livefyre/site-post-collection')
+    userPostMessage: _dereq_('./mocks/livefyre/user-post-message.json'),
+    sitePostCollection: _dereq_('./mocks/livefyre/site-post-collection.json')
 };
 
 // Blacklist certain names to .create(name)
@@ -78,7 +78,7 @@ function getNames(mockTree, prefix) {
     return names;
 }
 
-},{"./mocks/jsonld.json":2,"./mocks/livefyre/site-post-collection":3,"./mocks/livefyre/user-post-message":4,"./mocks/spec/basic-with-detail.json":5,"./mocks/spec/extended.json":6,"./mocks/spec/minimal.json":7,"./mocks/strings.json":8}],2:[function(_dereq_,module,exports){
+},{"./mocks/jsonld.json":2,"./mocks/livefyre/site-post-collection.json":3,"./mocks/livefyre/user-post-message.json":4,"./mocks/spec/basic-with-detail.json":5,"./mocks/spec/extended.json":6,"./mocks/spec/minimal.json":7,"./mocks/strings.json":8}],2:[function(_dereq_,module,exports){
 module.exports={
   "@context": "https://w3id.org/activity-streams/v2",
   "actor": {
@@ -136,18 +136,31 @@ module.exports={
         "id": "urn:livefyre:livefyre.com:site=222",
         "url": "http://www.example.com"
     },
-    "verb": "verb",
+    "verb": "post",
     "object": {
-        "id": "urn:livefyre:livefyre.com:collection=321",
+        "id": "urn:livefyre:livefyre.com:site=286470:collection=824379",
         "objectType": "collection",
-        "url": "http://www.example.com",
-        "title": "My Collection"
+        "title": "Hello world!",
+        "url": "http://www.demofyre.com/?p=1",
+        "articleId": "1",
+        "published" : "2014-06-14T20:56:16.046092Z",
+        "site": {
+            "displayName": "site.local",
+            "id": "urn:livefyre:livefyre.com:site=286470",
+            "objectType": "site",
+            "url": "http://site.local/"
+        },
+        "tags": [{
+            "id": "urn:livefyre:livefyre.com:site=286470:topic=123",
+            "label": "Topic 123",
+            "objectType": "topic"
+        },{
+            "id": "urn:livefyre:livefyre.com:topic=ABC",
+            "label": "Topic ABC - Network",
+            "objectType": "topic"
+        }]
     },
-    "context": {
-        "personalStream": {
-            "topics": "__TOPICS_PLACEHOLDER__"
-        }
-    }
+    "cc": ["urn:livefyre:livefyre.com:site=286470:topic=123"]
 }
 
 },{}],4:[function(_dereq_,module,exports){
@@ -160,9 +173,7 @@ module.exports={
         "image": "http://www.livefyre.com/user/123/sample.gif",
         "email": "bob@example.com"
     },
-    "published" : {
-        "published_time" : "2014-06-14T20:56:16.046092Z"
-    },
+    "published" : "2014-06-14T20:56:16.046092Z",
     "verb": {
         "id": "urn:livefyre:livefyre.com:verb=post",
         "displayName": "post"
@@ -181,24 +192,28 @@ module.exports={
         }
     },
     "target": {
-        "id": "urn:livefyre:livefyre.com:collection=321",
+        "id": "urn:livefyre:livefyre.com:site=286470:collection=824379",
         "objectType": "collection",
-        "url": "http://www.example.com",
-        "title": "My Collection",
+        "title": "Hello world!",
+        "url": "http://www.demofyre.com/?p=1",
+        "articleId": "1",
         "site": {
-            "id": "urn:livefyre:livefyre.com:site=222",
-            "url": "http://www.example.com"
+            "displayName": "site.local",
+            "id": "urn:livefyre:livefyre.com:site=286470",
+            "objectType": "site",
+            "url": "http://site.local/"
         },
-        "network": {
-            "id": "urn:livefyre:livefyre.com:network=333",
-            "displayName": "My Network"
-        }
+        "tags": [{
+            "id": "urn:livefyre:livefyre.com:site=286470:topic=123",
+            "label": "Topic 123",
+            "objectType": "topic"
+        },{
+            "id": "urn:livefyre:livefyre.com:topic=ABC",
+            "label": "Topic ABC - Network",
+            "objectType": "topic"
+        }]
     },
-    "context": {
-        "personalStream": {
-            "topics": "__TOPICS_PLACEHOLDER__"
-        }
-    }
+    "cc": ["urn:livefyre:livefyre.com:topic=ABC"]
 }
 
 },{}],5:[function(_dereq_,module,exports){
