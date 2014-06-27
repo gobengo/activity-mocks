@@ -1,0 +1,31 @@
+{
+  "actor": {
+    "objectType": "site",
+    "id": "urn:livefyre:livefyre.com:site=222",
+    "url": "http://www.example.com"
+  },
+  "verb": "tag",
+  "object": {
+    "id": "urn:livefyre:livefyre.com:site=286470:topic=123",
+    "label": "Topic 123",
+    "objectType": "topic"
+  }
+  "target": {
+    "id": "urn:livefyre:livefyre.com:site=286470:collection=824379",
+    "objectType": "collection",
+    "title": "Hello world!",
+    "url": "http://www.demofyre.com/?p=1",
+    "articleId": "1",
+    "site": {
+      "displayName": "site.local",
+      "id": "urn:livefyre:livefyre.com:site=286470",
+      "objectType": "site",
+      "url": "http://site.local/"
+    },
+    "tags": [{
+      "id": "urn:livefyre:livefyre.com:site=286470:topic=123",
+      "label": "Topic 123",
+      "objectType": "topic"
+    }]
+  }
+}
