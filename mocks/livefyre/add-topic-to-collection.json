@@ -9,7 +9,7 @@
     "id": "urn:livefyre:livefyre.com:site=286470:topic=123",
     "label": "Topic 123",
     "objectType": "topic"
-  }
+  },
   "target": {
     "id": "urn:livefyre:livefyre.com:site=286470:collection=824379",
     "objectType": "collection",
