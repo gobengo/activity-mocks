@@ -20,13 +20,55 @@
         },
         "tags": [{
             "id": "urn:livefyre:livefyre.com:site=286470:topic=123",
-            "label": "Topic 123",
+            "displayName": "Topic 123",
             "objectType": "topic"
         },{
             "id": "urn:livefyre:livefyre.com:topic=ABC",
-            "label": "Topic ABC - Network",
+            "displayName": "Topic ABC - Network",
             "objectType": "topic"
+        }],
+        "links": [{
+            "rel": "extension",
+            "object": {
+                "attachment": "http://www.trbimg.com/img-5204f0e0/turbine/kupyqknc-recipe-db/750/16x9",
+            }
+        },{
+            "rel": "extension",
+            "object": {
+                "publisher": "LA Times",
+            }
+        },{
+            "rel": "extension",
+            "object": {
+                "abstract": "Love a great burger? We've compiled a few of our favorite recipes, from a tempting salmon burgeran to an onion-lover's meaty cheeseburger and a veggie burger that will have even the most ardent meat-lovers eager for seconds. Check them out."
+            }
+        },{
+            "rel": "extension",
+            "object": {
+                "image_width": "2048"
+            }
+        },{
+            "rel": "extension",
+            "object": {
+                "image_height": "1365"
+            }
+        },{
+            "rel": "extension",
+            "object": {
+                "image_url": "http://www.trbimg.com/img-53dbff2f/turbine/la-fg-obama-gaza-20140801"
+            }
+        },{
+            "rel": "extension",
+            "object": {
+                "summary": "Love a great burger? We've compiled a few of our favorite recipes, from a tempting salmon burgeran to an onion-lover's meaty cheeseburger and a veggie burger that will have even the most ardent meat-lovers eager for seconds. Check them out."
+            }
+        },{
+            "rel": "extension",
+            "object": {
+                "source": "LA Times"
+            }
         }]
     },
-    "cc": ["urn:livefyre:livefyre.com:site=286470:topic=123"]
+    "cc": ["urn:livefyre:livefyre.com:site=286470:topic=123"],
+    "published": "2014-07-29T18:21:31.108503Z"
 }
